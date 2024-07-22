@@ -1,6 +1,7 @@
 package com.product.ecommerce.controller;
 
 import com.product.ecommerce.DTO.GetProductDTO;
+import com.product.ecommerce.exceptions.NotFoundException;
 import com.product.ecommerce.model.ProductModel;
 import com.product.ecommerce.service.ProductService;
 import lombok.Getter;
@@ -19,8 +20,9 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public @ResponseBody GetProductDTO getProduct(@PathVariable("id") long id){
+    public @ResponseBody GetProductDTO getProduct(@PathVariable("id") long id) throws Exception{
         return productService.getProductByID(id);
+
     }
 
     @PostMapping("")
